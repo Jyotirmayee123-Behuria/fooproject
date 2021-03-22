@@ -1,20 +1,26 @@
 pipeline {
-  agent any 
+   agent any
   stages {
-    stage('Build') {
-      steps {
-        sh "mvn compile"
-      }
-    }  
-    stage('Test') {
-      steps {
-        sh "mvn test"
-      }
-     post {
-      always {
-        junit '**/TEST*.xml'
-      }
+    stage('Checkout') {
+       steps {
+               git 'https://github.com/Jyotirmayee123-Behuria/fooproject.git/'
+          }
      }
-  }
- }
-}
+      stage ('Build') {
+              steps {
+                     bat "mvn compile"
+                }
+            }
+           stage('Test') {
+                steps {
+                        bat "mvn test"
+                     }
+         post {
+            always {
+                  junit '**/target/surefire-reports/TEST*.xml'
+              }
+           }
+        }
+      }
+    }
+     
