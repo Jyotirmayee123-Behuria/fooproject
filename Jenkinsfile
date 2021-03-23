@@ -11,13 +11,20 @@ pipeline {
                      sh "mvn compile"
                 }
             }
-           stage('Test') {
-                steps {
+     stage('Test') {
+            steps {
                         sh "mvn test"
                      }
-           stage('newman') {
+           
+            post {
+            always {
+                  junit '**/target/surefire-reports/TEST*.xml'
+              }
+           }
+        }
+		stage('newman') {
                 steps {
-                        sh 'newman run Restful_Booker_Facit.postman_collection.json --environment Restful_Booker.postman_environment.json --reporters junit'
+                        sh 'newman run Restful_Booker.postman_environment1.json --environment Restful_Booker.postman_collection1.json --reporters junit'
             }
             post {
                 always {
@@ -25,12 +32,8 @@ pipeline {
                     }
                 }
         }
-         post {
-            always {
-                  junit '**/target/surefire-reports/TEST*.xml'
-              }
-           }
-        }
+		
       }
     }
+     
      
