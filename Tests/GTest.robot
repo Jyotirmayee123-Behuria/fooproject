@@ -49,8 +49,9 @@ User car booking use case flow
     User supply valid Date
     #set selenium speed             20
     User click on the continue button
-    User select cars and passengers
-    User click on the Book button
+    User selects the Make and Number Of Passengers To Book Car
+    #User select cars and passengers
+    #User click on the Book button
     User on the confirmBooking page
     User enter valid card details
     User click on the confirm button
@@ -91,16 +92,20 @@ User supply valid Date
 User click on the continue button
      click element                   ${Continue_BUTTON}
 
-User select cars and passengers
-      click element                   ${Make_BUTTON}
-      select checkbox                 ${List_Cars}
-      click element                   ${Passengers_BUTTON}
-      select checkbox                 ${List_Passengers}
-      click element                   ${Booking_Page_Middlepane}
+#User select cars and passengers
+      #click element                   ${Make_BUTTON}
+      #select checkbox                 ${List_Cars}
+      #click element                   ${Passengers_BUTTON}
+      #select checkbox                 ${List_Passengers}
+      #click element                   ${Booking_Page_Middlepane}
 
-User click on the Book button
-     Wait Until Element Is Visible    ${Book_BUTTON}
-     click element                    ${Book_BUTTON}
+
+User selects the Make and Number Of Passengers To Book Car
+      Click button                    xpath://*[@id="bookQ7pass5"]
+
+#User click on the Book button
+     #Wait Until Element Is Visible    ${Book_BUTTON}
+     #click element                    ${Book_BUTTON}
 
 User on the confirmBooking page
       Wait Until Element Is Visible   ${Confirm_booking}
