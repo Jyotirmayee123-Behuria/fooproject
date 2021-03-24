@@ -16,11 +16,12 @@ ${StartDate_TEXTBOX}            //*[@id="start"]
 ${EndDate_TEXTBOX}              //*[@id="end"]
 ${Continue_BUTTON}              //*[@id="continue"]
 ${show_Cars}                    //*[@id="questionText"]
-${Make_BUTTON}                  //*[@id="ms-list-1"]/button
-${List_Cars}                    //*[@id="ms-opt-4"]
-${Passengers_BUTTON}            //*[@id="ms-list-2"]/button
-${List_Passengers}              //*[@id="ms-opt-6"]
-${Book_BUTTON}                  //*[@id="carSelect1"]
+#${Make_BUTTON}                  //*[@id="ms-list-1"]/button
+#${List_Cars}                    //*[@id="ms-opt-4"]
+#${Passengers_BUTTON}            //*[@id="ms-list-2"]/button
+#${List_Passengers}              //*[@id="ms-opt-6"]
+#${Book_BUTTON}                  //*[@id="carSelect1"]
+${Click_BUTTON}                 //*[@id="bookQ7pass5"]
 ${Confirm_booking}              //*[@id="questionText"]
 ${Booking_Page_Middlepane}      //*[@id="middlepane"]
 ${Card_Details}                 //*[@id="cardNum"]
@@ -101,7 +102,7 @@ User click on the continue button
 
 
 User selects the Make and Number Of Passengers To Book Car
-      Click button                    xpath://*[@id="bookQ7pass5"]
+      Click button                    ${Click_BUTTON}
 
 #User click on the Book button
      #Wait Until Element Is Visible    ${Book_BUTTON}

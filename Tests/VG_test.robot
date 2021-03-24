@@ -16,11 +16,12 @@ ${StartDate_TEXTBOX}            //*[@id="start"]
 ${EndDate_TEXTBOX}              //*[@id="end"]
 ${Continue_BUTTON}              //*[@id="continue"]
 ${show_Cars}                    //*[@id="questionText"]
-${Make_BUTTON}                  //*[@id="ms-list-1"]/button
-${List_Cars}                    //*[@id="ms-opt-1"]
-${Passengers_BUTTON}            //*[@id="ms-list-2"]/button
-${List_Passengers}              //*[@id="ms-opt-5"]
-${Book_BUTTON}                  //*[@id="carSelect1"]
+#${Make_BUTTON}                  //*[@id="ms-list-1"]/button
+#${List_Cars}                    //*[@id="ms-opt-1"]
+#${Passengers_BUTTON}            //*[@id="ms-list-2"]/button
+#${List_Passengers}              //*[@id="ms-opt-5"]
+#${Book_BUTTON}                  //*[@id="carSelect1"]
+${Click_BUTTON}                 //*[@id="bookQ7pass5"]
 ${Confirm_booking}              //*[@id="questionText"]
 ${Booking_Page_Middlepane}      //*[@id="middlepane"]
 ${Card_Details}                 //*[@id="cardNum"]
@@ -47,8 +48,9 @@ Valid User on the confirmBooking page
     User should get authenticated and can see booking start page
     User supply valid Date
     User click on the continue button
-    User select cars and passengers
-    User click on the Book button
+    User selects the Make and Number Of Passengers To Book Car
+    #User select cars and passengers
+    #User click on the Book button
     User on the confirmBooking page
 
 User enter valid card details
@@ -103,18 +105,21 @@ Authenticated User on the showCars Page
     User supply valid Date
     User click on the continue button
 
-User select cars and passengers
-      click element                   ${Make_BUTTON}
-      select checkbox                 ${List_Cars}
-      click element                   ${Passengers_BUTTON}
-      select checkbox                 ${List_Passengers}
-      Sleep                           1
-      click element                   ${Booking_Page_Middlepane}
+User selects the Make and Number Of Passengers To Book Car
+      Click button                    ${Click_BUTTON}
 
-User click on the Book button
+#User select cars and passengers
+      #click element                   ${Make_BUTTON}
+      #select checkbox                 ${List_Cars}
+      #click element                   ${Passengers_BUTTON}
+      #select checkbox                 ${List_Passengers}
+      #Sleep                           1
+      #click element                   ${Booking_Page_Middlepane}
 
-     Wait Until Element Is Visible    ${Book_BUTTON}
-     click element                    ${Book_BUTTON}
+#User click on the Book button
+
+     #Wait Until Element Is Visible    ${Book_BUTTON}
+     #click element                    ${Book_BUTTON}
 
 User on the confirmBooking page
       Wait Until Element Is Visible   ${Confirm_booking}
