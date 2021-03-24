@@ -84,9 +84,9 @@ User should get authenticated and can see booking start page
 
 User supply valid Date
      click element                   ${StartDate_TEXTBOX}
-     Input Text                      ${StartDate_TEXTBOX}             0303
+     Input Text                      ${StartDate_TEXTBOX}             0326
      click element                   ${EndDate_TEXTBOX}
-     Input Text                      ${EndDate_TEXTBOX}               0304
+     Input Text                      ${EndDate_TEXTBOX}               0328
 
 User click on the continue button
      click element                   ${Continue_BUTTON}

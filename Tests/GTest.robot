@@ -16,7 +16,7 @@ ${StartDate_TEXTBOX}            //*[@id="start"]
 ${EndDate_TEXTBOX}              //*[@id="end"]
 ${Continue_BUTTON}              //*[@id="continue"]
 ${show_Cars}                    //*[@id="questionText"]
-${Make_BUTTON}                  //*[@id="ms-list-1"]/button/span
+${Make_BUTTON}                  //*[@id="ms-list-1"]/button
 ${List_Cars}                    //*[@id="ms-opt-4"]
 ${Passengers_BUTTON}            //*[@id="ms-list-2"]/button
 ${List_Passengers}              //*[@id="ms-opt-6"]
@@ -36,7 +36,7 @@ User can login by supplying valid credentials
     Navigate to the home page
     User supply valid email and password
     User press the login button
-    #set selenium speed             1
+
     Verify Login Success Message
     End Web Test
 
@@ -47,6 +47,7 @@ User car booking use case flow
     User press the login button
     User should get authenticated and can see booking start page
     User supply valid Date
+    #set selenium speed             20
     User click on the continue button
     User select cars and passengers
     User click on the Book button
@@ -83,9 +84,9 @@ User should get authenticated and can see booking start page
 
 User supply valid Date
      click element                   ${StartDate_TEXTBOX}
-     Input Text                      ${StartDate_TEXTBOX}             0303
+     Input Text                      ${StartDate_TEXTBOX}           0326
      click element                   ${EndDate_TEXTBOX}
-     Input Text                      ${EndDate_TEXTBOX}               0304
+     Input Text                      ${EndDate_TEXTBOX}             0329
 
 User click on the continue button
      click element                   ${Continue_BUTTON}
