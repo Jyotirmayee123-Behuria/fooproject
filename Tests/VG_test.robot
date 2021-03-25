@@ -126,4 +126,4 @@ User on the confirmBooking page
       Element Should Be Visible       ${Confirm_booking}
 
 End Web Test
-   Close Browser
+   Close All Browsers

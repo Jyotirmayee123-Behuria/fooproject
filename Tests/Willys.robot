@@ -32,15 +32,13 @@ Verify Search Completed
     [Arguments]                 ${search_result}
     Wait until Page Contains    ${search_result}
 End Web Test
-    Close Browser
+    Close All Browsers
 *** Test Cases ***
 User can access website
     [Documentation]             This is some basic info about the test
     [Tags]                      Test 1
     Go To Web Page
     Search For Product          kiwi        Sökord: kiwi
-
-
 
 
 User can search for a prduct
