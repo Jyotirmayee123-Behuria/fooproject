@@ -11,12 +11,12 @@ pipeline {
                      sh "mvn compile"
                 }
             }
-    stage ('Code Coverage') {
+      stage ('Code Coverage') {
               steps {
                      jacoco changeBuildStatus: true, runAlways: true, skipCopyOfSrcFiles: true
                 }
             }
-    stage('Test') {
+      stage('Test') {
                 steps {
                         sh "mvn test"
                      }
@@ -26,7 +26,7 @@ pipeline {
               }
            }
         }
-     stage('newman') {
+      stage('newman') {
             steps {
                 sh 'newman run Restful_Booker.postman_collection1.json --environment Restful_Booker.postman_environment1.json --reporters junit'
             }
