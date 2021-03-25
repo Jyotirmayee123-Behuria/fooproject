@@ -11,7 +11,12 @@ pipeline {
                      sh "mvn compile"
                 }
             }
-      stage('Test') {
+    stage ('Code Coverage') {
+              steps {
+                     jacoco changeBuildStatus: true, runAlways: true, skipCopyOfSrcFiles: true
+                }
+            }
+    stage('Test') {
                 steps {
                         sh "mvn test"
                      }
@@ -21,8 +26,7 @@ pipeline {
               }
            }
         }
-
-        stage('newman') {
+     stage('newman') {
             steps {
                 sh 'newman run Restful_Booker.postman_collection1.json --environment Restful_Booker.postman_environment1.json --reporters junit'
             }
@@ -32,8 +36,7 @@ pipeline {
                     }
                 }
         }
-
-         stage('Robot') {
+     stage('Robot') {
             steps {
                 sh 'robot --variable BROWSER:headlesschrome -d Results Tests'
             }
