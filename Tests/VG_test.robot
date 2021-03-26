@@ -106,7 +106,8 @@ Authenticated User on the showCars Page
     User click on the continue button
 
 User selects the Make and Number Of Passengers To Book Car
-      Click button                    ${Click_BUTTON}
+      Wait Until Element Is Visible  ${Click_BUTTON}
+      Click button                   ${Click_BUTTON}
 
 #User select cars and passengers
       #click element                   ${Make_BUTTON}
