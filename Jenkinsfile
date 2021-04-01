@@ -8,7 +8,7 @@ pipeline {
      }
       stage ('Build') {
               steps {
-                     sh "mvn compile"
+                     bat "mvn compile"
                 }
             }
     /*stage ('Code Coverage') {
@@ -19,7 +19,7 @@ pipeline {
       
       stage('Test') {
                 steps {
-                        sh "mvn test"
+                        bat "mvn test"
                      }
          post {
             always {
@@ -29,7 +29,7 @@ pipeline {
         }
       stage('newman') {
             steps {
-                sh 'newman run Restful_Booker.postman_collection1.json --environment Restful_Booker.postman_environment1.json --reporters junit'
+                bat 'newman run Restful_Booker.postman_collection1.json --environment Restful_Booker.postman_environment1.json --reporters junit'
             }
             post {
                 always {
@@ -39,7 +39,7 @@ pipeline {
         }
      stage('Robot') {
             steps {
-                sh 'robot --variable BROWSER:headlesschrome -d Results Tests'
+                bat 'robot --variable BROWSER:headlesschrome -d Results Tests'
             }
             post {
                 always {
